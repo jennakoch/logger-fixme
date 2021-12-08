@@ -6,16 +6,15 @@ export const scrubString = (message) => {
     throw new Error('Invalid message');
   }
   // TODO: Given a string message, determine if there are any sensitive keywords and replace with '<REDACTED>'
+  for(var i = 0; i < SENSITIVE_KEYWORDS.length; i++){
+    return message.toLowerCase().indexOf(SENSITIVE_KEYWORDS[i].toLowerCase()) === -1 ? message : '<REDACTED>';
+  }
 };
 
 export const scrubMessage = (logMessage) => {
-  if (typeof logMessage != 'string' && typeof logMessage != 'object') {
+  if ((typeof logMessage != 'string' && typeof logMessage != 'object') || logMessage == null) {
     return logMessage;
   }
-  if (logMessage == null) {
-    return logMessage;
-  }
-
   if (typeof logMessage == 'string') {
     return scrubString(logMessage);
   }

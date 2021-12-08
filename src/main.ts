@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Logger } from './logger';
 
-const consoleLogger = new Logger({ appName: 'test', logOutputType: 'CONSOLE', logDirectory: './out' });
+const consoleLogger = new Logger({ appName: 'test', logOutputType: 'CONSOLE'});
 
 consoleLogger.log('1) Hello World this message is good to go', 'DEBUG');
 consoleLogger.log('2) apikey: this message should be scrubbed', 'ERROR');

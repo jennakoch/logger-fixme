@@ -3,12 +3,6 @@ import { scrubMessage } from './scrubber';
 import { LogTypeToLogger } from './util';
 
 export class Logger {
-  appName;
-  defaultLevel;
-  logScrubFunction;
-  logOutputType;
-  logDirectory;
-
   constructor(config) {
     this.appName = config.appName;
     this.defaultLevel = config.defaultLevel || 'INFO';
